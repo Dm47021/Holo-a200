@@ -1,0 +1,28 @@
+Signature-Version: 1.0
+Created-By: 1.0 (Android SignApk)
+SHA1-Digest-Manifest: 1R1xw27S+DLjMA665UouzitI67k=
+
+Name: system/build.prop
+SHA1-Digest: cZ5uXVMUuOABKD2sKEkFvxrxdj8=
+
+Name: META-INF/com/google/android/updater-script
+SHA1-Digest: 1W0ih0iXsu+RwaOxNhT8QHLgf1I=
+
+Name: zImage
+SHA1-Digest: 8GMDCsYFYeAB2sMR6k9AhFFAPPs=
+
+Name: system/lib/modules/bcm4329.ko
+SHA1-Digest: YgDQEeZIoN8bT+FceEcryCnoLWI=
+
+Name: toggle-ag
+SHA1-Digest: PYfTjT8+w8yolro7zGYJO3ww4+s=
+
+Name: META-INF/com/bin/unpackbootimg
+SHA1-Digest: nZSBiiXVc1iIa+nQJPfqn/2U/Hs=
+
+Name: META-INF/com/bin/mkbootimg
+SHA1-Digest: qEXnLpdtyJD/zqlVVhnRzxm7YCU=
+
+Name: META-INF/com/google/android/update-binary
+SHA1-Digest: JdDV7fIPRif4ybLh9P9lxPRETOE=
+
