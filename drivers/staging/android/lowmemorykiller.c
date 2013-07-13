@@ -38,6 +38,12 @@
 #include <linux/rcupdate.h>
 #include <linux/notifier.h>
 
+/* Fudgeswap */
+#ifdef CONFIG_SWAP
+#include <linux/fs.h>
+#include <linux/swap.h>
+#endif
+
 static uint32_t lowmem_debug_level = 2;
 static int lowmem_adj[6] = {
 	0,
@@ -55,6 +61,11 @@ static int lowmem_minfree[6] = {
 static int lowmem_minfree_size = 4;
 
 static unsigned long lowmem_deathpending_timeout;
+
+/* fudgeswap */
+#ifdef CONFIG_SWAP
+static int fudgeswap = 512;
+#endif
 
 #define lowmem_print(level, x...)			\
 	do {						\
@@ -76,6 +87,21 @@ static int lowmem_shrink(struct shrinker *s, int nr_to_scan, gfp_t gfp_mask)
 	int other_free = global_page_state(NR_FREE_PAGES);
 	int other_file = global_page_state(NR_FILE_PAGES) -
 						global_page_state(NR_SHMEM);
+
+/* Fudgeswap */
+#ifdef CONFIG_SWAP
+  if(fudgeswap != 0){
+    struct sysinfo si;
+    si_swapinfo(&si);
+
+    if(si.freeswap > 0){
+      if(fudgeswap > si.freeswap)
+        other_file += si.freeswap;
+      else
+        other_file += fudgeswap;
+    }
+  }
+#endif
 
 	if (lowmem_adj_size < array_size)
 		array_size = lowmem_adj_size;
